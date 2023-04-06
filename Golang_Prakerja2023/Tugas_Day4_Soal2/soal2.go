@@ -13,11 +13,11 @@ func main() {
 	var students []Student
 	var total int = 0
 
-	var temp_min int = 999
-	var idx_min int = 0
+	var temp_min int
+	var idx_min int
 
-	var temp_max int = 0
-	var idx_max int = 0
+	var temp_max int
+	var idx_max int
 
 	for i := 0; i < 5; i++ {
 		students = append(students, Student{"", 0})
@@ -27,6 +27,14 @@ func main() {
 
 		fmt.Print("Input ", i+1, " Student's Score ")
 		fmt.Scanln(&students[i].score)
+
+		if i == 0 {
+			temp_min = students[i].score
+			idx_min = i
+
+			temp_max = students[i].score
+			idx_max = i
+		}
 
 		if temp_max < students[i].score {
 			temp_max = students[i].score
